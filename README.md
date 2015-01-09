@@ -1,61 +1,39 @@
 opsworks-export-envs Cookbook
 =============================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+> This cookbook only works on AWS OpsWorks.
 
-Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+Dump environment variables which set in Apps for shell-init.
 
-e.g.
-#### packages
-- `toaster` - opsworks-export-envs needs toaster to brown your bagel.
-
-Attributes
-----------
-TODO: List your cookbook attributes here.
-
-e.g.
-#### opsworks-export-envs::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['opsworks-export-envs']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
 
 Usage
------
-#### opsworks-export-envs::default
-TODO: Write usage instructions for each cookbook.
+----
 
-e.g.
-Just include `opsworks-export-envs` in your node's `run_list`:
+Add `opsworks-export-envs::default` to Deploy event.
+All environment variables are dumped to `/home/deploy/${app_name}.sh` at deployment.
 
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[opsworks-export-envs]"
-  ]
-}
+You can use it by dot command or source.
+
+```
+. /home/deploy/${app_name}.sh
+
+or 
+
+source /home/deploy/${app_name}.sh
+```
+
+
+### Barksfile
+
+```
+source "https://supermarket.chef.io"
+
+cookbook 'opsworks-export-envs', git: 'https://github.com/OpsRockin/opsworks-export-envs.git'
 ```
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -65,4 +43,6 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+
+MIT
+
