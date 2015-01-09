@@ -8,10 +8,11 @@
 #
 
 node.deploy.each_pair do |app_name,vals|
-  file File.join("/home/deploy", "shellinit-#{app_name}.sh") do
+  file File.join(node[:deploy][app_name][:home], "shellinit-#{app_name}.sh") do
     envs = []
     vals.environment_variables.each_pair {|key, val| envs << "export #{key}=\"#{val}\""} if vals.environment_variables
-    owner "deploy"
+    owner node[:deploy][app_name][:user]
+    group node[:deploy][app_name][:group]
     content envs.join("\n")
   end
 end
