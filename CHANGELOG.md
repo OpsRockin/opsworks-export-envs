@@ -3,6 +3,10 @@ opsworks-export-envs CHANGELOG
 
 This file is used to list changes made in each version of the opsworks-export-envs cookbook.
 
+1.0.2
+-----
+- [sawanoboly] - Set default value 0644 to initfile permission.
+
 1.0.1
 -----
 - [sawanoboly] - Reuse vals
