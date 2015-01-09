@@ -10,16 +10,16 @@ Usage
 ----
 
 Add `opsworks-export-envs::default` to Deploy event.
-All environment variables are dumped to `/home/deploy/${app_name}.sh` at deployment.
+All environment variables are dumped to `/home/deploy/shellinit-${app_name}.sh` at deployment.
 
 You can use it by dot command or source.
 
 ```
-. /home/deploy/${app_name}.sh
+. /home/deploy/shellinit-${app_name}.sh
 
 or 
 
-source /home/deploy/${app_name}.sh
+source /home/deploy/shellinit-${app_name}.sh
 ```
 
 
